@@ -1,11 +1,17 @@
 ### Get all tasks
 GET http://localhost:3000/tasks
 
+### Get task by id
+GET http://localhost:3000/tasks/66875cb8-24fc-4317-a72b-6519d6fcf747
+
 ### Create a task
 POST http://localhost:3000/tasks
 Content-Type: application/json
 
 {
-  "title": "Learn Nest",
-  "description": "from Udemy course"
+  "title": "3. Learn Nest",
+  "description": "3. from Udemy course"
 }
+
+### Delete task by id
+DELETE http://localhost:3000/tasks/39c6453c-285e-4af6-a675-a95594947498
