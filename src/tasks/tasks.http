@@ -9,9 +9,19 @@ POST http://localhost:3000/tasks
 Content-Type: application/json
 
 {
-  "title": "3. Learn Nest",
-  "description": "3. from Udemy course"
+  "title": "2. Learn Nest",
+  "description": "2. from Udemy course"
 }
 
 ### Delete task by id
 DELETE http://localhost:3000/tasks/39c6453c-285e-4af6-a675-a95594947498
+
+### Update task by id
+PATCH http://localhost:3000/tasks/7fc985df-6c39-4a74-ba94-01c67db003a3/status
+Content-Type: application/json
+
+{
+  "status": "IN_PROGRESS"
+}
+
+
