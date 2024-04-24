@@ -1,0 +1,11 @@
+### Get all tasks
+GET http://localhost:3000/tasks
+
+### Create a task
+POST http://localhost:3000/tasks
+Content-Type: application/json
+
+{
+  "title": "Learn Nest",
+  "description": "from Udemy course"
+}
