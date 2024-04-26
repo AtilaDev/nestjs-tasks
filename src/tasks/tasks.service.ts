@@ -2,13 +2,48 @@ import { Injectable } from '@nestjs/common';
 import { Task, TaskStatus } from './task.model';
 import { v4 as uuid } from 'uuid';
 import { CreateTaskDto } from './dto/create-task.dto';
+import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 
 @Injectable()
 export class TasksService {
-  private tasks: Task[] = [];
+  private tasks: Task[] = [
+    {
+      id: '885b2f67-6b33-4f66-98f2-b26fdefc040a',
+      title: '1. Learn Nest',
+      description: '1. from Udemy course',
+      status: TaskStatus.OPEN,
+    },
+    {
+      id: 'ac90f374-9f44-430c-b891-8307f146e3de',
+      title: '2. Learn Nest',
+      description: '2. from Udemy course',
+      status: TaskStatus.OPEN,
+    },
+  ];
 
   getAllTasks(): Task[] {
     return this.tasks;
+  }
+
+  getTasksWithFilters(filterDto: GetTasksFilterDto): Task[] {
+    const { status, search } = filterDto;
+
+    let tasks = this.getAllTasks();
+
+    if (status) {
+      tasks = tasks.filter((task) => task.status === status);
+    }
+
+    if (search) {
+      tasks = tasks.filter((task) => {
+        if (task.title.includes(search) || task.description.includes(search)) {
+          return true;
+        }
+        return false;
+      });
+    }
+
+    return tasks;
   }
 
   getTaskById(id: string): Task {

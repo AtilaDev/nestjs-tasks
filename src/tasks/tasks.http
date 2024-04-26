@@ -9,8 +9,8 @@ POST http://localhost:3000/tasks
 Content-Type: application/json
 
 {
-  "title": "2. Learn Nest",
-  "description": "2. from Udemy course"
+  "title": "1. Learn Nest",
+  "description": "1. from Udemy course"
 }
 
 ### Delete task by id
@@ -24,4 +24,5 @@ Content-Type: application/json
   "status": "IN_PROGRESS"
 }
 
-
+### Get all tasks with status filter
+GET http://localhost:3000/tasks?search=1.
