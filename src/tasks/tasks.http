@@ -24,5 +24,5 @@ Content-Type: application/json
   "status": "IN_PROGRESS"
 }
 
-### Get all tasks with status filter
+### Get all tasks with status or search filter
 GET http://localhost:3000/tasks?search=1.
