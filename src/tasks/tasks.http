@@ -17,12 +17,12 @@ Content-Type: application/json
 DELETE http://localhost:3000/tasks/39c6453c-285e-4af6-a675-a95594947498
 
 ### Update task by id
-PATCH http://localhost:3000/tasks/7fc985df-6c39-4a74-ba94-01c67db003a3/status
+PATCH http://localhost:3000/tasks/885b2f67-6b33-4f66-98f2-b26fdefc040a/status
 Content-Type: application/json
 
 {
-  "status": "IN_PROGRESS"
+  "status": "OPEN"
 }
 
 ### Get all tasks with status or search filter
-GET http://localhost:3000/tasks?search=1.
+GET http://localhost:3000/tasks?search=next

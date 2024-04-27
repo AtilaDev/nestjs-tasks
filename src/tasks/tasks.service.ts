@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Task, TaskStatus } from './task.model';
 import { v4 as uuid } from 'uuid';
 import { CreateTaskDto } from './dto/create-task.dto';
@@ -10,13 +10,13 @@ export class TasksService {
     {
       id: '885b2f67-6b33-4f66-98f2-b26fdefc040a',
       title: '1. Learn Nest',
-      description: '1. from Udemy course',
+      description: '1. from udemy course',
       status: TaskStatus.OPEN,
     },
     {
       id: 'ac90f374-9f44-430c-b891-8307f146e3de',
-      title: '2. Learn Nest',
-      description: '2. from Udemy course',
+      title: '2. Learn Next',
+      description: '2. from devtalles course',
       status: TaskStatus.OPEN,
     },
   ];
@@ -36,7 +36,14 @@ export class TasksService {
 
     if (search) {
       tasks = tasks.filter((task) => {
-        if (task.title.includes(search) || task.description.includes(search)) {
+        const searchLower = search.toLowerCase();
+        const titleLower = task.title.toLowerCase();
+        const descriptionLower = task.description.toLowerCase();
+
+        if (
+          titleLower.includes(searchLower) ||
+          descriptionLower.includes(searchLower)
+        ) {
           return true;
         }
         return false;
@@ -47,7 +54,13 @@ export class TasksService {
   }
 
   getTaskById(id: string): Task {
-    return this.tasks.find((task) => task.id === id);
+    const found = this.tasks.find((task) => task.id === id);
+
+    if (!found) {
+      throw new NotFoundException(`Task with id ${id} not found`);
+    }
+
+    return found;
   }
 
   createTask(createTaskDto: CreateTaskDto): Task {
@@ -65,7 +78,8 @@ export class TasksService {
   }
 
   deleteTaskById(id: string): void {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    const found = this.getTaskById(id);
+    this.tasks = this.tasks.filter((task) => task.id !== found.id);
   }
 
   updateTaskStatus(id: string, status: TaskStatus): Task {
