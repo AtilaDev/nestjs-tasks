@@ -7,3 +7,12 @@ Content-Type: application/json
   "password": "qwerty12$123$ds.A"
 }
 
+### Login
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "username": "carolina2",
+  "password": "qwerty12$123$ds.A"
+}
+
