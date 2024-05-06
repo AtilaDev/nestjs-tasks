@@ -16,3 +16,12 @@ Content-Type: application/json
   "password": "qwerty12$123$ds.A"
 }
 
+### Route protect
+POST http://localhost:3000/auth/test
+Content-Type: application/json
+
+{
+  "username": "carolina2",
+  "password": "qwerty12$123$ds.A"
+}
+
