@@ -1,30 +1,36 @@
 ### Get all tasks
-GET http://localhost:3000/tasks
+GET http://localhost:3000/tasks?status=OPEN
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcm9saW5hMiIsImlhdCI6MTcxNDk2NDU1OSwiZXhwIjoxNzE0OTY4MTU5fQ.z_BjkyII9o_4h90FtGd5GaznklCOWa9tYXXWKhgzW8U
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwiaWF0IjoxNzE1MDQ3ODQ5LCJleHAiOjE3MTUwNTE0NDl9.gsreq30fUl-B8jKIAjJ21NJ7AQhUwZCpAoZmmAOboR4
 
 ### Get task by id
-GET http://localhost:3000/tasks/964b6c22-2a41-4ad5-98b2-4d97738ac0c7
+GET http://localhost:3000/tasks/8cc5c1c8-51bf-45c2-a6e7-d10a8d3f4ef6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWF0IjoxNzE1MDEwODY3LCJleHAiOjE3MTUwMTQ0Njd9.gdG0i54X12ZArObWRNt8q6q_zOtRde4qJM7i1Umz7v0
 
 ### Create a task
 POST http://localhost:3000/tasks
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcm9saW5hMiIsImlhdCI6MTcxNDk2NDU1OSwiZXhwIjoxNzE0OTY4MTU5fQ.z_BjkyII9o_4h90FtGd5GaznklCOWa9tYXXWKhgzW8U
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwiaWF0IjoxNzE1MDQ3ODQ5LCJleHAiOjE3MTUwNTE0NDl9.gsreq30fUl-B8jKIAjJ21NJ7AQhUwZCpAoZmmAOboR4
 
 {
-  "title": "1. Learn Nest",
-  "description": "1. from Udemy course"
+  "title": "Third",
+  "description": "Third task"
 }
 
 ### Delete task by id
-DELETE http://localhost:3000/tasks/0ffc473e-79a7-4638-a191-7c9434229d20
+DELETE http://localhost:3000/tasks/85d12232-860b-4802-a6b5-b24b9236bc0a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwiaWF0IjoxNzE1MDEyMzE3LCJleHAiOjE3MTUwMTU5MTd9.2ucudepd8R2EbYuLahNQkSKyP6iOuKIMT6AKIeVAhCc
+
 
 ### Update task by id
-PATCH http://localhost:3000/tasks/28a7682a-ab86-4ed5-9992-7b19665a7ec1/status
+PATCH http://localhost:3000/tasks/1a7e0795-fa52-439d-8118-fdc946b26d87
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWF0IjoxNzE1MDEwODY3LCJleHAiOjE3MTUwMTQ0Njd9.gdG0i54X12ZArObWRNt8q6q_zOtRde4qJM7i1Umz7v0
 
 {
-  "status": "OPEN"
+  "status": "DONE"
 }
 
 ### Get all tasks with status or search filter
